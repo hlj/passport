@@ -64,7 +64,7 @@ function createAuthGuard(type?: string | string[]): Type<CanActivate> {
 
     handleRequest(err, user, info, context): TUser {
       if (err || !user) {
-        throw err || new UnauthorizedException();
+        throw err || info ||  new UnauthorizedException();
       }
       return user;
     }
